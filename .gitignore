@@ -1,4 +1,5 @@
 bin/
 obj/
+publish/
 project.lock.json
 .vscode/

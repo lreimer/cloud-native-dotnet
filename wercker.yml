@@ -1,5 +1,7 @@
 box: microsoft/dotnet:1.0.0-preview2-sdk
-no-response-timeout: 10
+
+#no-response-timeout: 10
+
 build:
   steps: 
     - script:
@@ -18,3 +20,4 @@ build:
         name: Copy binaries
         code: |
           cp -r . $WERCKER_OUTPUT_DIR/app
+
