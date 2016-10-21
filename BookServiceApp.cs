@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace QAware.OSS
 {
-    public class MicroserviceApp
+    public class BookServiceApp
     {
         public static void Main(string[] args)
         {

@@ -2,8 +2,7 @@ image:https://img.shields.io/badge/license-MIT%20License-blue.svg["MIT License",
 
 = Cloud Native .NET Core Showcase
 
-This showcase demonstrates how to build a cloud native application using .NET Core in combination
-with the Steeltoe project.
+This showcase demonstrates how to build a cloud native application using .NET Core and the Steeltoe project.
 
 == Build instructions
 
