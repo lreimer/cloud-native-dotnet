@@ -1,4 +1,5 @@
-image:https://img.shields.io/badge/license-MIT%20License-blue.svg["MIT License", link=https://github.com/lreimer/cloud-native-javaee/blob/master/LICENSE"]
+image:https://app.wercker.com/status/64684d55f2f7c019e6aedba464eb54d7/s/master["Wercker Status", link="https://app.wercker.com/project/byKey/64684d55f2f7c019e6aedba464eb54d7"]
+image:https://img.shields.io/badge/license-MIT%20License-blue.svg["MIT License", link="https://github.com/lreimer/cloud-native-javaee/blob/master/LICENSE"]
 
 = Cloud Native .NET Core Showcase
 
