@@ -19,5 +19,17 @@ build:
     - script:
         name: Copy binaries
         code: |
-          cp -r . $WERCKER_OUTPUT_DIR/app
+          cp entrypoint.sh $WERCKER_OUTPUT_DIR/app/
+          cp -r publish/ $WERCKER_OUTPUT_DIR/app/
 
+deploy:
+  steps:
+    - internal/docker-push:
+        cwd: $WERCKER_OUTPUT_DIR/app
+        author: "M.-Leander Reimer <mario-leander.reimer@qaware.de>"
+        email: "qaware-oss@qaware.de"
+        password: $PASSWORD
+        repository: lreimer/cloud-native-dotnet
+        registry: https://qaware-oss-docker-registry.bintray.io
+        entrypoint: "./entrypoint.sh"
+        ports: "5000, 8080"
