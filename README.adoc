@@ -1,0 +1,31 @@
+image:https://img.shields.io/badge/license-MIT%20License-blue.svg["MIT License", link=https://github.com/lreimer/cloud-native-javaee/blob/master/LICENSE"]
+
+= Cloud Native DotNet.NET Core Showcase
+
+This showcase demonstrates how to build a cloud native application using .NET Core using the Steeltoe project.
+
+== Build instructions
+
+In order to compile and run the examples you do not need much. Make sure you have .NET Core installed.
+```shell
+$ ./dotnet restore
+$ ./dotnet build
+```
+
+== Running the Cloud Native .NET showcase
+
+```shell
+$ ./dotnet run
+```
+
+== References
+
+* https://docs.microsoft.com/de-de/dotnet/[.NET Documentation]
+
+== Maintainer
+
+M.-Leander Reimer (@lreimer)
+
+== License
+
+This software is provided under the MIT open source license, read the `LICENSE` file for details.
