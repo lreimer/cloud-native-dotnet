@@ -19,8 +19,9 @@ build:
     - script:
         name: Copy binaries
         code: |
+          cp -r publish/ $WERCKER_OUTPUT_DIR/app
           cp entrypoint.sh $WERCKER_OUTPUT_DIR/app/
-          cp -r publish/ $WERCKER_OUTPUT_DIR/app/
+
 
 deploy:
   steps:
