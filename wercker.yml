@@ -23,11 +23,11 @@ build:
 deploy:
   steps:
     - internal/docker-push:
-        cwd: $WERCKER_OUTPUT_DIR/app
+        cwd: /pipeline/source/app
         author: "M.-Leander Reimer <mario-leander.reimer@qaware.de>"
         username: $USERNAME
         password: $PASSWORD
         repository: lreimer/cloud-native-dotnet
         registry: https://registry.hub.docker.com
-        entrypoint: $WERCKER_OUTPUT_DIR/app/entrypoint.sh
+        entrypoint: /pipeline/source/app/entrypoint.sh
         ports: "5000, 8080"
