@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
+using Steeltoe.Extensions.Configuration;
 
 namespace QAware.OSS
 {
@@ -12,7 +13,7 @@ namespace QAware.OSS
         {
             var config = new ConfigurationBuilder()
                 .AddCommandLine(args)
-            	.Build();
+                .Build();
 
             var host = new WebHostBuilder()
              .UseKestrel()
@@ -26,6 +27,19 @@ namespace QAware.OSS
 
     class Startup
     {
+        public IConfigurationRoot Configuration { get; set; }
+
+        public Startup(IHostingEnvironment env)
+        {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(System.IO.Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .AddEnvironmentVariables()
+                .AddConfigServer(env);
+
+            Configuration = builder.Build();
+        }
+
         public void Configure(IApplicationBuilder app)
         {
             app.UseMvc();
@@ -33,8 +47,9 @@ namespace QAware.OSS
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IBooksRepository, MemoryBooksRepository>();
+            services.AddConfigServer(Configuration);
             services.AddMvc();
+            services.AddScoped<IBooksRepository, MemoryBooksRepository>();
         }
     }
 }
