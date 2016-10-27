@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Steeltoe.Extensions.Configuration;
+using Steeltoe.Discovery.Client;
 
 namespace QAware.OSS
 {
@@ -42,14 +43,17 @@ namespace QAware.OSS
 
         public void Configure(IApplicationBuilder app)
         {
+            app.UseDiscoveryClient();
             app.UseMvc();
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddConfigServer(Configuration);
+            services.AddDiscoveryClient(Configuration);
+            services.AddSingleton<IBooksRepository, MemoryBooksRepository>();
+            services.AddSingleton<IConfigurationRoot>(Configuration);
             services.AddMvc();
-            services.AddScoped<IBooksRepository, MemoryBooksRepository>();
         }
     }
 }
