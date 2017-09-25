@@ -3,3 +3,24 @@ obj/
 publish/
 project.lock.json
 .vscode/
+
+# User-specific files (MonoDevelop/Xamarin Studio)
+*.userprefs
+*.user
+*.suo
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+[Ll]og/
+
+# Visual Studio 2015 cache/options directory
+.vs/

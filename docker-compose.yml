@@ -1,29 +1,43 @@
-eureka:
-  image: "lreimer/cloud-native-eureka"
-  hostname: eureka
-  ports:
-    - "8761:8761"
+version: "3"
+services:
 
-config:
-  image: "lreimer/cloud-native-config"
-  hostname: config
-  links:
-    - eureka
-  environment:
-    EUREKA_HOST: eureka
-    EUREKA_PORT: 8761
-  ports:
-    - "8888:8888"
+  eureka:
+    image: "lreimer/cloud-native-eureka"
+    ports:
+      - "8761:8761"
+    networks:
+      - backend
 
-dotnet:
-  image: "lreimer/cloud-native-dotnet"
-  hostname: dotnet
-  links:
-    - eureka
-    - config
-  environment:
-    EUREKA_HOST: eureka
-    EUREKA_PORT: 8761
-  ports:
-    - "8080:8080"
-    - "5000:5000"
+  config:
+    image: "lreimer/cloud-native-config"
+    links:
+      - eureka
+    depends_on:
+      - eureka
+    environment:
+      EUREKA_HOST: eureka
+      EUREKA_PORT: 8761
+    ports:
+      - "8888:8888"
+    networks:
+      - backend
+
+  dotnet:
+    image: "lreimer/cloud-native-dotnet"
+    links:
+      - eureka
+      - config
+    depends_on:
+      - eureka
+      - config
+    environment:
+      EUREKA_HOST: eureka
+      EUREKA_PORT: 8761
+    ports:
+      - "8080:8080"
+      - "5000:5000"
+    networks:
+      - backend
+
+networks:
+  backend:
