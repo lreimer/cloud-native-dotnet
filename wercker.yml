@@ -1,7 +1,7 @@
-box: microsoft/dotnet:1.0.0-preview2-sdk
+box: microsoft/dotnet:1.0.4-sdk
 
 build:
-  steps: 
+  steps:
     - script:
         name: Restore .NET dependencies
         code: |
@@ -9,7 +9,7 @@ build:
     - script:
         name: Build Cloud Native .NET showcase
         code: |
-          dotnet build  
+          dotnet build
     - script:
         name: Publish
         code: |
