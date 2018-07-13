@@ -24,7 +24,7 @@ $ ./dotnet run
 * https://docs.microsoft.com/de-de/dotnet/[.NET Documentation]
 * https://github.com/microservices-aspnetcore/grabbymon-demo
 * http://wercker.com
-* http://steeltow.io[Steeltoe]
+* http://steeltoe.io[Steeltoe]
 
 == Maintainer
 
